@@ -11,7 +11,9 @@ return array(
     'modules' => array(
         'Application',
         'ZendDeveloperTools',
-        'MyBlog'
+        'MyBlog',
+        'DoctrineModule',
+        'DoctrineORMModule'
     ),
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => array(
