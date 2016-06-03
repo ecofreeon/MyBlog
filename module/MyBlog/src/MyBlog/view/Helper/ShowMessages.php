@@ -10,17 +10,10 @@ class ShowMessages extends AbstractHelper
 
     public function __invoke()
     {
-        $this->flashMessenger()->addMessage($message);
-        $this->flashMessenger()->addErrorMessage($message);
-        $this->flashMessenger()->getMessages();
-        $this->flashMessenger()->getErrorMessages();
-        
-        
         $messenger = new FlashMessenger();
         $error_messages = $messenger->getErrorMessages();
         $messages = $messenger->getMessages();
         $result = '';
-        
         if (count($error_messages)) {
             $result .= '<ul class="error">';
             foreach ($error_messages as $message) {
