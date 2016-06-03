@@ -1,15 +1,12 @@
 <?php
 
 namespace MyBlog\Form;
+
 use Zend\Form\Form;
 use Zend\InputFilter\Factory as InputFactory;
 use Zend\InputFilter\InputFilter;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  * Description of BlogPostForm
@@ -21,8 +18,9 @@ class BlogPostForm extends Form
 
     public function __construct($name = null)
     {
-        
-          $form = new \MyBlog\Form\BlogPostForm();
+        var_dump("Все плохо");
+        $this->setInputFilter(new \MyBlog\Form\BlogPostInputFilter());
+        $form = new \MyBlog\Form\BlogPostForm();
         $form->get('submit')->setValue('Add');
 
         $request = $this->getRequest();

@@ -1,8 +1,10 @@
 <?php
+
 namespace MyBlog\Form;
 
 use Zend\Form\Form;
 use Zend\InputFilter\InputFilter;
+
 /**
  * Description of BlogPostInputFilter
  *
@@ -10,6 +12,7 @@ use Zend\InputFilter\InputFilter;
  */
 class BlogPostInputFilter extends InputFilter
 {
+
     public function __construct()
     {
         $this->add(array(
@@ -28,7 +31,6 @@ class BlogPostInputFilter extends InputFilter
                 array('name' => 'StripTags'),
                 array('name' => 'StringTrim'),
             ),
-
         ));
 
         $this->add(array(
@@ -53,4 +55,5 @@ class BlogPostInputFilter extends InputFilter
             'required' => false,
         ));
     }
+
 }

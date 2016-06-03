@@ -6,7 +6,7 @@ return array(
     'doctrine' => array(
         'driver' => array(
             'myblog_entity' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'class' =>'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'paths' => array(__DIR__ . '/../src/MyBlog/Entity')
             ),
             'orm_default' => array(
@@ -19,6 +19,11 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'MyBlog\Controller\BlogPost' => 'MyBlog\Controller\BlogController',
+        ),
+    ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'showMessages' => 'MyBlog\View\Helper\ShowMessages',
         ),
     ),
     'router' => array(

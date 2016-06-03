@@ -1,6 +1,10 @@
 <?php
 
+namespace MyBlog\Controller;
+
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+use MyBlog\Entity;
 
 /**
  * Description of BlogController
@@ -12,6 +16,7 @@ class BlogController extends AbstractActionController
 
     public function indexAction()
     {
+
         $objectManager = $this->getServiceLocator()->get('Doctrine\ORM\EntityManager');
 
         $posts = $objectManager
@@ -21,7 +26,7 @@ class BlogController extends AbstractActionController
         $view = new ViewModel(array(
             'posts' => $posts,
         ));
-
+        var_dump("Все плохо");
         return $view;
     }
 
@@ -29,8 +34,6 @@ class BlogController extends AbstractActionController
     {
         $form = new \MyBlog\Form\BlogPostForm();
         $form->get('submit')->setValue('Add');
-        $message = 'Blogpost succesfully saved!';
-        $this->flashMessenger()->addMessage($message);
 
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -135,6 +138,7 @@ class BlogController extends AbstractActionController
 
     public function deleteAction()
     {
+
         $id = (int) $this->params()->fromRoute('id', 0);
         if (!$id) {
             $this->flashMessenger()->addErrorMessage('Blogpost id doesn\'t set');
